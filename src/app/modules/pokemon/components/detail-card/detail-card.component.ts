@@ -2,6 +2,8 @@ import { Component, Input } from '@angular/core';
 
 import { DetailPokemon } from '../../../../data/interfaces/pokemon.interfaces';
 
+import { typeColor } from "../../../../utils/colours";
+
 @Component({
   selector: 'app-detail-card',
   templateUrl: './detail-card.component.html',
@@ -18,6 +20,10 @@ export class DetailCardComponent {
 
   checkImg(imgSrc: string | object) {
     return !!imgSrc && typeof imgSrc !== 'object';
+  }
+
+  setColor(type: string) {
+    return typeColor(type);
   }
 
 }

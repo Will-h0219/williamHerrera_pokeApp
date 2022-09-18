@@ -1,4 +1,4 @@
-<div class="detail__card">
+<div [ngClass]="setColor(pokemon.types[0].type.name)" class="detail__card">
   <img [src]="pokemon.sprites.other['official-artwork'].front_default">
   <p># {{ pokemon.id }}</p>
   <p>{{ pokemon.name | titlecase }}</p>
