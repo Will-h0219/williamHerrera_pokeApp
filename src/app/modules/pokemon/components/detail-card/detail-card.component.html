@@ -1,0 +1,41 @@
+<div class="detail__card">
+  <img [src]="pokemon.sprites.other['official-artwork'].front_default">
+  <p># {{ pokemon.id }}</p>
+  <p>{{ pokemon.name | titlecase }}</p>
+
+  <div class="initial full-width">
+    <h3>Types</h3>
+    <div class="types">
+      <p *ngFor="let item of pokemon.types">
+        {{ item.type.name }}
+      </p>
+    </div>
+  </div>
+
+  <div class="initial full-width">
+    <h3>Peso</h3>
+    <p>{{ pokemon.weight }} kg</p>
+  </div>
+
+  <div class="initial full-width">
+    <h3>Sprites</h3>
+    <div class="sprites">
+      <ng-container *ngFor="let item of pokemon.sprites | keyvalue">
+        <img class="sprite" [src]="item.value" *ngIf="checkImg(item.value)">
+      </ng-container>
+    </div>
+  </div>
+
+  <div class="initial full-width">
+    <h3>Movimientos</h3>
+
+    <div class="movements">
+      <p *ngFor="let move of moves">
+        {{ move.move.name }}
+      </p>
+      <p *ngIf="pokemon.moves.length > numberOfMoves">
+        {{ pokemon.moves.length - numberOfMoves }}+
+      </p>
+    </div>
+  </div>
+</div>

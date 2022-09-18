@@ -1,0 +1,41 @@
+<section class="container">
+  <h1 class="title">Listado de Pokemon</h1>
+
+  <div class="wrapper">
+    <app-search-bar class="search" (onSearch)="searchMade($event)"></app-search-bar>
+
+    <ng-container *ngIf="!noResults">
+      <div class="cards">
+        <app-card *ngFor="let item of pokeList"
+          [resultItem]="item"
+          (onPokeClick)="setDetail($event)"
+        ></app-card>
+      </div>
+  
+      <div class="detail">
+        <app-detail-card *ngIf="!!detailedPokemon" [pokemon]="detailedPokemon"></app-detail-card>
+      </div>
+  
+      <div class="nav">
+        <button class="nav__btn back-icon"
+          [disabled]="!prevPageUrl"
+          (click)="navigate(prevPageUrl!)"
+        >
+          Atras
+        </button>
+      
+        <button class="nav__btn forward-icon"
+          [disabled]="!nextPageUrl"
+          (click)="navigate(nextPageUrl!)"
+        >
+          Siguiente
+        </button>
+      </div>
+    </ng-container>
+    
+  </div>
+
+  <div class="no-results" *ngIf="noResults">
+    No se encontraron resultados relacionados a la busqueda
+  </div>
+</section>
