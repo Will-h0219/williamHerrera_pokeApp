@@ -18,10 +18,14 @@ export class CardComponent implements OnInit {
   pokeId: string = "";
   name: string = "";
 
-  constructor(private pokemonServie: PokemonService) { }
+  constructor(private pokemonService: PokemonService) { }
 
   ngOnInit(): void {
-    this.pokemonServie.getPokemon(this.resultItem.url).subscribe({
+    this.setPokemon();
+  }
+
+  setPokemon() {
+    this.pokemonService.getPokemon(this.resultItem.url).subscribe({
       next: (resp) => {
         this.pokemon = resp;
         this.name = resp.name;
