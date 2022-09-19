@@ -1,7 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { from, Observable } from 'rxjs';
 import { ResultItem } from 'src/app/data/interfaces/pokemon.interfaces';
 import { detailPokemonMock } from 'src/app/utils/mocks/pikachu.mock';
 import { resultItemMock } from 'src/app/utils/mocks/resultItem.mock';
